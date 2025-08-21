@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🪙 UniPay</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2575fc;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #1a5bcc;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .form-section-active {
+            display: none;
+        }
+
+        .toggle-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 登录表单 -->
+    <div class="form-section">
+        <h2>登录 UniPay</h2>
+        <form method="post" name="login">
+            <input type="text" name="username" placeholder="用户名" autocomplete="off" required>
+            <input type="password" name="password" placeholder="密码" required>
+            <button type="submit">登录</button>
+        </form>
+        <div class="toggle-text">没有账号？请注册</div>
+    </div>
+
+    <!-- 注册表单 -->
+    <div class="form-section form-section-active">
+        <h2>注册 UniPay</h2>
+        <form method="post" name="register">
+            <input type="text" name="username" placeholder="用户名" autocomplete="off" required>
+            <input type="email" name="email" placeholder="邮箱" autocomplete="off" required>
+            <input type="password" name="password" placeholder="密码" required>
+            <input type="password" name="pay-password" placeholder="支付密码" required>
+            <button type="submit">注册</button>
+        </form>
+        <div class="toggle-text">已有账号？请登录</div>
+    </div>
+</div>
+
+<script>
+    const container = document.querySelectorAll('.container > div')
+    const toggleTexts = document.querySelectorAll('.toggle-text');
+    const loginForm = document.querySelector('form[name="login"]');
+    const registerForm = document.querySelector('form[name="register"]');
+    const registerUsername = registerForm.querySelector('input[name="username"]');
+    const registerEmail = registerForm.querySelector('input[name="email"]');
+    const registerPassword = registerForm.querySelector('input[name="password"]');
+    const registerPayPassword = registerForm.querySelector('input[name="pay-password"]');
+    const loginUsername = loginForm.querySelector('input[name="username"]');
+    const loginPassword = loginForm.querySelector('input[name="password"]');
+    const user = {
+        username: '',
+        email: '',
+        password: '',
+        payPassword: '',
+        balance: 0,
+        transactions: [],
+    }
+
+    // 存数据到 localStorage
+    const setStockpile = (uname, item) => localStorage.setItem(uname, JSON.stringify(item))
+    // 取数据，没数据返回默认值
+    const getStockpile = (uname, defaultValue = null) => {
+        try {
+            const data = JSON.parse(localStorage.getItem(uname))
+            return data === null ? defaultValue : data
+        } catch {
+            return defaultValue
+        }
+    }
+
+    toggleTexts.forEach((item, index) => {
+        item.addEventListener('click', e => {
+            if (e.target.tagName === 'DIV') {
+                container.forEach(item => item.classList.remove('form-section-active'));
+                container[index].classList.add('form-section-active');
+            }
+        })
+    })
+
+    loginForm.addEventListener('submit', e => {
+        e.preventDefault()
+        if (loginForm.username.value.trim() === '' || loginForm.password.value.trim() === '') {
+            alert('请填写所有字段！');
+            loginForm.reset();
+            return;
+        }
+        const storedUser = getStockpile(`UniPay-${loginForm.username.value}-user`);
+        if (loginUsername.value === storedUser.username && +loginPassword.value === storedUser.password) {
+            alert('登录成功！');
+            setStockpile('UniPay-currentUser', loginForm.username.value);
+            location.href = 'index.html';
+            loginForm.reset();
+        } else {
+            alert('用户名或密码错误！');
+            return;
+        }
+        loginForm.reset();
+    })
+
+    registerForm.addEventListener('submit', e => {
+        e.preventDefault()
+        if (registerUsername.value.trim() === '' || registerEmail.value.trim() === '' || registerPassword.value.trim() === '') {
+            alert('请填写所有字段！');
+            registerForm.reset();
+            return;
+        }
+        if (getStockpile(`UniPay-${registerUsername.value}-user`)) {
+            alert('用户名已存在，请选择其他用户名。');
+            return;
+        }
+
+        container.forEach(item => item.classList.remove('form-section-active'));
+        container[1].classList.add('form-section-active');
+        loginForm.username.value = registerUsername.value;
+        loginForm.password.value = registerPassword.value;
+        alert('注册成功！请登录。')
+
+        user.username = registerUsername.value;
+        user.email = registerEmail.value;
+        user.password = +registerPassword.value;
+        user.payPassword = +registerPayPassword.value;
+        setStockpile(`UniPay-${user.username}-user`, user)
+        registerForm.reset();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,1620 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 100%;
+    height: 874px;
+}
+
+.footer-list {
+    list-style-type: none;
+    background-color: #f8f9fa;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-box {
+    width: 100%;
+    height: 7%;
+    background-color: #3c3cf5;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+main {
+    position: fixed;
+    top: 7%;
+    width: 100%;
+    height: 86%;
+}
+
+.index {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-balance {
+    margin: 15px;
+    width: 90%;
+    height: 15%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.index-balance-icon {
+    margin: 10px;
+    font-size: 45px;
+    float: left;
+}
+
+.index-balance div {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.index-balance-amount {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.my {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-info {
+    margin: 15px;
+    width: 90%;
+    height: 15%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.my-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    text-align: center;
+    font-size: 50px;
+    float: left;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.pay nav {
+    position: fixed;
+    bottom: 7%;
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pay-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+.pay-effect {
+    display: inline-block;
+    position: absolute;
+    background-color: #3c3cf5;
+    width: 44.7%;
+    height: 65%;
+    border-radius: 19px;
+    transition: all 0.15s;
+    left: 5.5%;
+    bottom: 16.5%;
+    z-index: -1;
+}
+
+.pay-list-li {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 280%;
+    transition: all 0.15s;
+}
+
+/* my-pay-password 样式 */
+.my-pay-password {
+    margin: 15px;
+    width: 90%;
+    height: 12%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.my-transaction-records {
+    margin: 15px;
+    width: 90%;
+    height: 12%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.my-pay-password-icon {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    text-align: center;
+    font-size: 50px;
+    float: left;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-pay-password-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.my-transaction-records-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.my-pay-password-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.my-transaction-records-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.my-pay-password-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.my-transaction-records-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* index-save 样式（仿照 my-pay-password） */
+.index-save {
+    margin: 15px;
+    width: 90%;
+    height: 12%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.index-save-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.index-save-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.index-save-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.index-balance-desc {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* index-withdraw 样式（仿照 index-save） */
+.index-withdraw {
+    margin: 15px;
+    width: 90%;
+    height: 12%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.index-withdraw-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.index-withdraw-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.index-withdraw-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* log-out 扁平样式 */
+.log-out {
+    margin: 15px;
+    width: 90%;
+    height: 7%;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.my-log-out-details h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e74c3c;
+    letter-spacing: 1px;
+}
+
+.log-out:hover {
+    background-color: #fff5f5;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.25);
+}
+
+.log-out:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* my-details 样式补充 */
+.my-details {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.my-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.my-emil {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* 支付密码修改页面样式 */
+.my-pay-password-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    backdrop-filter: blur(2px);
+}
+
+/* 隐藏checkbox */
+.close-checkbox {
+    display: none;
+}
+
+/* 当checkbox被选中时隐藏模态框 */
+.close-checkbox:checked ~ .my-pay-password-active {
+    display: none;
+}
+
+/* 关闭按钮样式 */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+}
+
+.close-btn:hover {
+    color: #333;
+    background-color: #e0e0e0;
+    transform: scale(1.1);
+}
+
+.my-pay-password-active-box {
+    width: 100%;
+    height: 93.5%;
+    background-color: white;
+    padding: 30px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.my-pay-password-active-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.my-pay-password-active-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #3c3cf5;
+    border-radius: 2px;
+}
+
+.my-pay-password-active-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.my-pay-password-active-form input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.my-pay-password-active-form input:focus {
+    outline: none;
+    border-color: #3c3cf5;
+    box-shadow: 0 0 0 3px rgba(60, 60, 245, 0.1);
+}
+
+.my-pay-password-active-form input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.my-pay-password-active-form button {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #3c3cf5;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.my-pay-password-active-form button:hover {
+    background-color: #2a2ad4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 60, 245, 0.3);
+}
+
+.my-pay-password-active-form button:active {
+    transform: translateY(0);
+}
+
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .my-pay-password-active-box {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .my-pay-password-active-title {
+        font-size: 20px;
+    }
+
+    .my-pay-password-active-form input,
+    .my-pay-password-active-form button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+/* index-save-active 样式（仿照 my-pay-password-active） */
+.index-save-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    backdrop-filter: blur(2px);
+}
+
+.index-save-active-box {
+    width: 100%;
+    height: 93.5%;
+    background-color: white;
+    padding: 30px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-save-active-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.index-save-active-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #3c3cf5;
+    border-radius: 2px;
+}
+
+.index-save-active-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.index-save-active-form input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.index-save-active-form input:focus {
+    outline: none;
+    border-color: #3c3cf5;
+    box-shadow: 0 0 0 3px rgba(60, 60, 245, 0.1);
+}
+
+.index-save-active-form input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.index-save-active-form button {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #3c3cf5;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.index-save-active-form button:hover {
+    background-color: #2a2ad4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 60, 245, 0.3);
+}
+
+.index-save-active-form button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .index-save-active-box {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .index-save-active-title {
+        font-size: 20px;
+    }
+
+    .index-save-active-form input,
+    .index-save-active-form button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+/* index-withdraw-active 样式（仿照 index-save-active） */
+.index-withdraw-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    backdrop-filter: blur(2px);
+}
+
+.index-withdraw-active-box {
+    width: 100%;
+    height: 93.5%;
+    background-color: white;
+    padding: 30px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-withdraw-active-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.index-withdraw-active-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #3c3cf5;
+    border-radius: 2px;
+}
+
+.index-withdraw-active-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.index-withdraw-active-form input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.index-withdraw-active-form input:focus {
+    outline: none;
+    border-color: #3c3cf5;
+    box-shadow: 0 0 0 3px rgba(60, 60, 245, 0.1);
+}
+
+.index-withdraw-active-form input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.index-withdraw-active-form button {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #3c3cf5;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.index-withdraw-active-form button:hover {
+    background-color: #2a2ad4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 60, 245, 0.3);
+}
+
+.index-withdraw-active-form button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .index-withdraw-active-box {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .index-withdraw-active-title {
+        font-size: 20px;
+    }
+
+    .index-withdraw-active-form input,
+    .index-withdraw-active-form button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+.region-active {
+    display: none;
+}
+
+.collect-region-active {
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 78%;
+    z-index: 1000;
+    display: none;
+    background-color: white;
+}
+
+.Transfer-region-active {
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 78%;
+    z-index: 1000;
+    background-color: white;
+    display: none;
+}
+
+/* 收款与转账主卡片样式（沿用 existing 卡片视觉） */
+.collect-main,
+.Transfer-main {
+    margin: 100px auto;
+    width: 90%;
+    height: auto;
+    padding: 18px 16px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.collect-title,
+.Transfer-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.collect-desc,
+.Transfer-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+/* 表单统一风格（参考 modal 表单） */
+.collect-form,
+.transfer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.collect-form input,
+.transfer-form input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.collect-form input:focus,
+.transfer-form input:focus {
+    outline: none;
+    border-color: #3c3cf5;
+    box-shadow: 0 0 0 3px rgba(60, 60, 245, 0.1);
+}
+
+.collect-form input::placeholder,
+.transfer-form input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.collect-form button,
+.transfer-form button {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #3c3cf5;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+}
+
+.collect-form button:hover,
+.transfer-form button:hover {
+    background-color: #2a2ad4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 60, 245, 0.3);
+}
+
+.collect-form button:active,
+.transfer-form button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .collect-main,
+    .Transfer-main {
+        width: 90%;
+        padding: 16px 14px 18px;
+    }
+
+    .collect-title,
+    .Transfer-title {
+        font-size: 18px;
+    }
+
+    .collect-form input,
+    .transfer-form input,
+    .collect-form button,
+    .transfer-form button {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+.collect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transfer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* pay-collect 和 pay-transfer 样式 */
+.pay-collect {
+    margin: 15px;
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    background-color: #ffffff;
+}
+
+.pay-transfer {
+    margin: 15px;
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    background-color: #ffffff;
+}
+
+.collect-handle {
+    margin: 15px;
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    background-color: #ffffff;
+}
+
+.transfer-handle {
+    margin: 15px;
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    background-color: #ffffff;
+}
+
+.pay-collect:hover,
+.pay-transfer:hover {
+    background-color: #f5f5ff;
+    box-shadow: 0 5px 15px rgba(60, 60, 245, 0.25);
+}
+
+.pay-collect:active,
+.pay-transfer:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.pay-collect-details,
+.pay-transfer-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.collect-handle-details,
+.transfer-handle-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.pay-collect-title,
+.pay-transfer-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.collect-handle-title,
+.transfer-handle-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.pay-collect-desc,
+.pay-transfer-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.collect-handle-desc,
+.transfer-handle-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* collect-handle-active 样式 */
+.collect-handle-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    backdrop-filter: blur(2px);
+}
+
+.collect-handle-main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 30px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.collect-handle-main .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+}
+
+.collect-handle-main .close-btn:hover {
+    color: #333;
+    background-color: #e0e0e0;
+    transform: scale(1.1);
+}
+
+.collect-handle-list {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 收款请求项样式 */
+.collect-request {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.collect-request:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.collect-request-username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collect-request-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2ecc71;
+    margin-right: 10px;
+    min-width: fit-content;
+}
+
+.collect-request-accept,
+.collect-request-reject {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 60px;
+}
+
+.collect-request-accept {
+    background-color: #27ae60;
+    color: white;
+}
+
+.collect-request-accept:hover {
+    background-color: #229954;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+}
+
+.collect-request-reject {
+    background-color: #e74c3c;
+    color: white;
+    margin-left: 8px;
+}
+
+.collect-request-reject:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+}
+
+/* collect-handle-active 样式 */
+.collect-handle-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 78%;
+    backdrop-filter: blur(2px);
+    overflow-y: auto;
+}
+
+.collect-handle-main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 30px 25px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+
+}
+
+.collect-handle-main .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    overflow-y: auto;
+
+}
+
+.collect-handle-list {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* 收款请求项样式 */
+.collect-request {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.collect-request-username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collect-request-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2ecc71;
+    margin-right: 10px;
+    min-width: fit-content;
+}
+
+.collect-request-accept,
+.collect-request-reject {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.collect-request-accept {
+    background-color: #27ae60;
+    color: white;
+}
+
+.collect-request-reject {
+    background-color: #e74c3c;
+    color: white;
+    margin-left: 8px;
+}
+
+/* transfer-handle-active 样式 */
+.transfer-handle-active {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 78%;
+    backdrop-filter: blur(2px);
+    overflow-x: hidden;
+}
+
+.transfer-handle-main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 30px 25px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.transfer-handle-main .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+}
+
+.collect-date,
+.transfer-date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.transfer-handle-list {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* 转账请求项样式 */
+.transfer-request {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.transfer-request-username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.transfer-request-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3c3cf5;
+    margin-right: 10px;
+    min-width: fit-content;
+}
+
+.transfer-request-accept,
+.transfer-request-reject {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.transfer-request-accept {
+    background-color: #3c3cf5;
+    color: white;
+}
+
+.transfer-request-reject {
+    background-color: #e74c3c;
+    color: white;
+    margin-left: 8px;
+}
+
+/* 空状态样式 */
+.collect-handle-list:empty::before,
+.transfer-handle-list:empty::before {
+    content: '暂无请求';
+    display: block;
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 16px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 15px;
+    background-color: #fafafa;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .collect-handle-main,
+    .transfer-handle-main {
+        padding: 25px 20px 15px;
+    }
+
+    .collect-handle-list,
+    .transfer-handle-list {
+        width: 100%;
+
+    }
+
+    .collect-request,
+    .transfer-request {
+        padding: 15px;
+        flex-wrap: wrap;
+        width: 90%;
+        height: 50px;
+    }
+
+    .collect-request-username,
+    .transfer-request-username {
+        font-size: 14px;
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .collect-request-amount,
+    .transfer-request-amount {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .collect-request-accept,
+    .collect-request-reject,
+    .transfer-request-accept,
+    .transfer-request-reject {
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 50px;
+    }
+
+    .collect-request-reject,
+    .transfer-request-reject {
+        margin-left: 5px;
+    }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+    .collect-request,
+    .transfer-request {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .collect-request-username,
+    .transfer-request-username {
+        font-size: 13px;
+        flex: 1;
+        min-width: 80px;
+    }
+
+    .collect-request-amount,
+    .transfer-request-amount {
+        font-size: 13px;
+    }
+
+    .collect-request-accept,
+    .collect-request-reject,
+    .transfer-request-accept,
+    .transfer-request-reject {
+        padding: 5px 8px;
+        font-size: 11px;
+        min-width: 40px;
+    }
+}
+
+.index-balance-active {
+    background-color: rgba(255, 255, 255, 1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* 避免内容超出 */
+}
+
+.index-balance-active-box {
+    margin-top: 50px;
+    width: 90%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+.to-transaction-records {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.index-balance-active-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.index-balance-active-amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a7cf7; /* 蓝色强调余额 */
+    letter-spacing: 1px;
+}
+
+.transaction-records-active {
+    background-color: rgba(255, 255, 255, 1);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 86%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.transaction-records-active-box {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.transaction-records-active-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.transaction-records-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 列表项间距 */
+}
+
+.transaction-records-item {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 15px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    height: 100px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transaction-records-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-records-type {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #2a7cf7; /* 蓝色突出交易类型 */
+    flex: 1;
+}
+
+.transaction-records-amount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    text-align: center;
+}
+
+.transaction-records-date {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #666;
+    flex: 1;
+    text-align: right;
+}
+
+.notify {
+    position: fixed;
+    bottom: 7%;
+    width: 100%;
+    height: 3%;
+    line-height: 30px;
+    max-height: 80vh;
+    z-index: 1000;
+    text-align: center;
+    color: green;
+    background-color: rgba(0, 0, 0, 0.22);
+}

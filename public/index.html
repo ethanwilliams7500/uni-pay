@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🪙 UniPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="box">
+    <header>
+        <div class="header-box">
+            <h1>🪙 UniPay</h1>
+        </div>
+    </header>
+    <main>
+        <section class="index">
+            <div class="index-balance">
+                <span class="index-balance-icon">🪙</span>
+                <div>
+                    <span class="index-balance-amount" data-balance="0">US$ 0.00</span>
+                    <span class="index-balance-desc">UniPay 余额</span>
+                </div>
+            </div>
+            <div class="index-save">
+                <div class="index-save-details">
+                    <h1 class="index-save-title">存款</h1>
+                    <span class="index-save-desc">将资金存入余额</span>
+                </div>
+            </div>
+            <div class="index-withdraw">
+                <div class="index-withdraw-details">
+                    <h1 class="index-withdraw-title">取款</h1>
+                    <span class="index-withdraw-desc">从余额取出资金</span>
+                </div>
+            </div>
+        </section>
+        <section class="pay region-active">
+            <div class="pay-main">
+                <div class="transfer">
+                    <div class="pay-transfer">
+                        <div class="pay-transfer-details">
+                            <h1 class="pay-transfer-title">转账</h1>
+                            <span class="pay-transfer-desc">向其他用户转账</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="my region-active">
+            <div class="my-info">
+                <span class="my-avatar">👤</span>
+                <div class="my-details">
+                    <h1 class="my-name">Ethan</h1>
+                    <span class="my-emil">ethanwilliams7500@gmail.com</span>
+                </div>
+            </div>
+            <div class="my-pay-password">
+                <div class="my-pay-password-details">
+                    <h1 class="my-pay-password-title">支付密码</h1>
+                    <span class="my-pay-password-desc">更改支付密码</span>
+                </div>
+            </div>
+            <div class="my-transaction-records">
+                <div class="my-transaction-records-details">
+                    <h1 class="my-transaction-records-title">交易记录</h1>
+                    <span class="my-transaction-records-desc">查看所有交易记录</span>
+                </div>
+            </div>
+            <div class="log-out">
+                <div class="my-log-out-details">
+                    <h1>退出登录</h1>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="region2">
+        <section class="my-pay-password-active">
+            <input type="checkbox" id="close-password-modal" class="close-checkbox">
+            <div class="my-pay-password-active-box">
+                <label for="close-password-modal" class="close-btn">➞</label>
+                <h1 class="my-pay-password-active-title">更改支付密码</h1>
+                <form class="my-pay-password-active-form">
+                    <input class="old-pay-password" type="password" placeholder="请输入旧支付密码" required>
+                    <input class="new-pay-password" type="password" placeholder="请输入新支付密码" required>
+                    <button type="submit">提交</button>
+                </form>
+            </div>
+        </section>
+        <section class="index-save-active">
+            <input type="checkbox" id="close-save-modal" class="close-checkbox">
+            <div class="index-save-active-box">
+                <label for="close-save-modal" class="close-btn">➞</label>
+                <h1 class="index-save-active-title">存入余额</h1>
+                <form class="index-save-active-form">
+                    <input class="save-amount" type="number" step="0.01" inputmode="decimal"
+                           placeholder="请输入存入金额" required>
+                    <input class="save-pay-password" type="password" placeholder="请输入支付密码" required>
+                    <button type="submit">确认存入</button>
+                </form>
+            </div>
+        </section>
+        <section class="index-withdraw-active">
+            <input type="checkbox" id="close-withdraw-modal" class="close-checkbox">
+            <div class="index-withdraw-active-box">
+                <label for="close-withdraw-modal" class="close-btn">➞</label>
+                <h1 class="index-withdraw-active-title">取出余额</h1>
+                <form class="index-withdraw-active-form">
+                    <input class="withdraw-amount" type="number" step="0.01" inputmode="decimal"
+                           placeholder="请输入取出金额" required>
+                    <input class="withdraw-pay-password" type="password" placeholder="请输入支付密码" required>
+                    <button type="submit">确认取出</button>
+                </form>
+            </div>
+        </section>
+        <section class="Transfer-region-active">
+            <div class="Transfer-main">
+                <label for="close-withdraw-modal" class="close-btn">➞</label>
+                <h1 class="Transfer-title">转账</h1>
+                <span class="Transfer-desc">向其他用户转账</span>
+                <form class="transfer-form">
+                    <input class="transfer-username" type="text" placeholder="请输入付款人用户名" required>
+                    <input class="transfer-amount" type="number" step="0.01" inputmode="decimal"
+                           placeholder="请输入付款金额" required>
+                    <input class="transfer-pay-password" type="password" placeholder="请输入支付密码" required>
+                    <button type="submit">发起转账</button>
+                </form>
+            </div>
+        </section>
+        <section class="index-balance-active">
+            <label for="close-withdraw-modal" class="close-btn">➞</label>
+            <div class="index-balance-active-box">
+                <h1 class="index-balance-active-title">UniPay 余额</h1>
+                <span class="index-balance-active-amount" data-balance="0">US$ 0.00</span>
+            </div>
+            <div class="to-transaction-records">
+                查看交易记录
+            </div>
+        </section>
+        <section class="transaction-records-active">
+            <input type="checkbox" id="close-records-modal" class="close-checkbox">
+            <div class="transaction-records-active-box">
+                <label for="close-records-modal" class="close-btn">➞</label>
+                <h1 class="transaction-records-active-title">交易记录</h1>
+                <ul class="transaction-records-list">
+                    <!-- 交易记录将动态添加到这里 -->
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<footer>
+    <ul class="footer-list">
+        <li class="footer-li">首页</li>
+        <li class="footer-li">转账</li>
+        <li class="footer-li">我的</li>
+    </ul>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
