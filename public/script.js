@@ -91,7 +91,7 @@ function render() {
 
     transactionList.innerHTML = userData.transactions.map(transaction => {
         const {type, amount, date, to, from} = transaction;
-        const flag = type === 'Deposit' || 'Collect' ? '+' : '-';
+        const flag = type === 'Deposit' || type === 'Collect' ? '+' : '-'
         const typeText = type === 'Deposit' ? '存入' :
             type === 'Withdraw' ? '取出' :
                 type === 'Transfer' ? `转账➞ ${to}` :

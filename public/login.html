@@ -188,14 +188,15 @@
 
         container.forEach(item => item.classList.remove('form-section-active'));
         container[1].classList.add('form-section-active');
+
         loginForm.username.value = registerUsername.value;
         loginForm.password.value = registerPassword.value;
         alert('注册成功！请登录。')
 
         user.username = registerUsername.value;
         user.email = registerEmail.value;
-        user.password = +registerPassword.value;
-        user.payPassword = +registerPayPassword.value;
+        user.password = registerPassword.value;
+        user.payPassword = registerPayPassword.value;
         setStockpile(`UniPay-${user.username}-user`, user)
         registerForm.reset();
     })
