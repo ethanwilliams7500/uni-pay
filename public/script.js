@@ -102,7 +102,7 @@ function render() {
     const transactionList = document.querySelector('.transaction-records-list')
     transactionList.innerHTML = ''; // 清空之前的记录
 
-    transactionList.innerHTML = userData.transactions.reverse().map(transaction => {
+    transactionList.innerHTML = [...userData.transactions].reverse().map(transaction => {
         const {type, amount, date, to, from, game} = transaction;
         const flag = type === 'Deposit' || type === 'Collect' ? '+' : '-'
         const typeText = type === 'Deposit' ? '存入' :
