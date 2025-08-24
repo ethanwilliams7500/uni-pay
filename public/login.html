@@ -162,7 +162,7 @@
             return;
         }
         const storedUser = getStockpile(`UniPay-${loginForm.username.value}-user`);
-        if (loginUsername.value === storedUser.username && +loginPassword.value === storedUser.password) {
+        if (loginUsername.value === storedUser.username && loginPassword.value === storedUser.password) {
             alert('登录成功！');
             setStockpile('UniPay-currentUser', loginForm.username.value);
             location.href = 'index.html';
