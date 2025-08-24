@@ -1,85 +1,6 @@
-/* iPhone 16 Pro/Pro Max 优化样式 */
-@supports (padding: max(0px)) {
-    :root {
-        --safe-area-inset-top: env(safe-area-inset-top);
-        --safe-area-inset-bottom: env(safe-area-inset-bottom);
-        --safe-area-inset-left: env(safe-area-inset-left);
-        --safe-area-inset-right: env(safe-area-inset-right);
-    }
-}
-
-/* 针对iPhone 16 Pro/Pro Max的特定优化 */
-@media screen and (device-width: 393px) and (device-height: 852px),
-       screen and (device-width: 430px) and (device-height: 932px) {
-    :root {
-        --header-height: 8%;
-        --footer-height: 8%;
-        --main-height: 84%;
-        --border-radius: 18px;
-        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-        --transition-speed: 0.3s;
-    }
-    
-    /* 优化触摸区域 */
-    .footer-list li,
-    .index-save,
-    .index-withdraw,
-    .my-pay-password,
-    .my-transaction-records,
-    .pay-transfer,
-    .pay-collect,
-    .collect-handle,
-    .transfer-handle {
-        min-height: 44px; /* iOS推荐的最小触摸区域 */
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    /* 优化滚动体验 */
-    main {
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-    
-    /* 优化模态框在iPhone上的显示 */
-    .my-pay-password-active,
-    .index-save-active,
-    .index-withdraw-active,
-    .collect-handle-active,
-    .transfer-handle-active {
-        padding-top: var(--safe-area-inset-top);
-        padding-bottom: var(--safe-area-inset-bottom);
-    }
-}
-
-/* 通用移动端优化 */
 * {
     margin: 0;
     padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-/* 允许文本选择 */
-input, textarea, [contenteditable] {
-    -webkit-user-select: text;
-    user-select: text;
-}
-
-/* 优化触摸反馈 */
-@media (hover: none) and (pointer: coarse) {
-    .index-save:active,
-    .index-withdraw:active,
-    .my-pay-password:active,
-    .my-transaction-records:active,
-    .pay-transfer:active,
-    .pay-collect:active,
-    .collect-handle:active,
-    .transfer-handle:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-    }
 }
 
 .box {
@@ -98,14 +19,13 @@ input, textarea, [contenteditable] {
     font-weight: 500;
     justify-content: space-around;
     align-items: center;
+    font-size: 18px;
 }
-
-
 
 .header-box {
     width: 100%;
     height: 7%;
-    background-color: #3c3cf5;
+    background-color: #2563eb;
     position: fixed;
     top: 0;
     display: flex;
@@ -133,15 +53,11 @@ main {
     margin: 15px;
     width: 90%;
     height: 15%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .index-balance-icon {
@@ -174,15 +90,11 @@ main {
     margin: 15px;
     width: 90%;
     height: 15%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
-    background: linear-gradient(135deg, #ffffff 0%, #f0f0ff 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .my-avatar {
@@ -245,42 +157,24 @@ main {
     margin: 15px;
     width: 90%;
     height: 12%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    background: linear-gradient(135deg, #ffffff 0%, #fff0f0 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.my-pay-password:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(245, 60, 60, 0.15);
 }
 
 .my-transaction-records {
     margin: 15px;
     width: 90%;
     height: 12%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    background: linear-gradient(135deg, #ffffff 0%, #f0fff0 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.my-transaction-records:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(60, 245, 60, 0.15);
 }
 
 .my-pay-password-icon {
@@ -340,21 +234,12 @@ main {
     margin: 15px;
     width: 90%;
     height: 12%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.index-save:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(60, 60, 245, 0.15);
 }
 
 .index-save-details {
@@ -387,21 +272,12 @@ main {
     margin: 15px;
     width: 90%;
     height: 12%;
-    border-radius: var(--border-radius, 15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.index-withdraw:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(245, 120, 60, 0.15);
 }
 
 .index-withdraw-details {
@@ -428,17 +304,15 @@ main {
     margin: 15px;
     width: 90%;
     height: 7%;
-    border-radius: var(--border-radius, 12px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--card-shadow, 2px 2px 5px rgba(0, 0, 0, 0.3));
-    background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
     cursor: pointer;
-    transition: all var(--transition-speed, 0.3s) ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease, color 0.2s ease;
 }
 
 .my-log-out-details h1 {
@@ -480,21 +354,17 @@ main {
 
 /* 支付密码修改页面样式 */
 .my-pay-password-active {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     position: fixed;
-    top: var(--header-height, 7%);
+    top: 7%;
     left: 0;
     width: 100%;
-    height: var(--main-height, 86%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding-top: var(--safe-area-inset-top, 0);
-    padding-bottom: var(--safe-area-inset-bottom, 0);
-    box-sizing: border-box;
+    height: 86%;
+    backdrop-filter: blur(2px);
 }
 
 /* 隐藏checkbox */
@@ -533,20 +403,14 @@ main {
 }
 
 .my-pay-password-active-box {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    min-height: 400px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 40px 30px;
+    width: 100%;
+    height: 93.5%;
+    background-color: white;
+    padding: 30px 25px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .my-pay-password-active-title {
@@ -578,16 +442,12 @@ main {
 
 .my-pay-password-active-form input {
     width: 100%;
-    padding: 18px 20px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 16px;
-    transition: all var(--transition-speed, 0.3s) ease;
+    transition: all 0.3s ease;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .my-pay-password-active-form input:focus {
@@ -603,18 +463,16 @@ main {
 
 .my-pay-password-active-form button {
     width: 100%;
-    padding: 18px 20px;
-    background: linear-gradient(135deg, #3c3cf5 0%, #2a2ad4 100%);
+    padding: 15px 20px;
+    background-color: #3c3cf5;
     color: white;
     border: none;
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-speed, 0.3s) ease;
-    margin-top: 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    box-shadow: 0 4px 15px rgba(60, 60, 245, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
 .my-pay-password-active-form button:hover {
@@ -1760,517 +1618,4 @@ main {
     text-align: center;
     color: green;
     background-color: rgba(0, 0, 0, 0.22);
-}
-
-/* iPhone 16 Pro/Pro Max 额外优化 */
-@media screen and (device-width: 393px) and (device-height: 852px),
-       screen and (device-width: 430px) and (device-height: 932px) {
-    
-    /* 优化字体渲染 */
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    /* 优化标题字体 */
-    h1 {
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-    }
-    
-    /* 优化卡片悬停效果 */
-    .index-save:hover,
-    .index-withdraw:hover,
-    .my-pay-password:hover,
-    .my-transaction-records:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-    
-    /* 优化按钮点击效果 */
-    .my-pay-password-active-form button:active,
-    .index-save-active-form button:active,
-    .index-withdraw-active-form button:active {
-        transform: scale(0.98);
-        box-shadow: 0 2px 8px rgba(60, 60, 245, 0.4);
-    }
-    
-    /* 优化输入框焦点效果 */
-    .my-pay-password-active-form input:focus,
-    .index-save-active-form input:focus,
-    .index-withdraw-active-form input:focus {
-        border-color: #3c3cf5;
-        box-shadow: 0 0 0 4px rgba(60, 60, 245, 0.15);
-        transform: scale(1.02);
-    }
-    
-    /* 优化模态框动画 */
-    .my-pay-password-active,
-    .index-save-active,
-    .index-withdraw-active {
-        animation: modalFadeIn 0.3s ease-out;
-    }
-    
-    .my-pay-password-active-box,
-    .index-save-active-box,
-    .index-withdraw-active-box {
-        animation: modalSlideUp 0.3s ease-out;
-    }
-}
-
-/* 添加iOS风格的动画 */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes modalSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* 优化滚动条样式（iOS风格） */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-/* 优化选择文本样式 */
-::selection {
-    background: rgba(60, 60, 245, 0.2);
-    color: #333;
-}
-
-::-moz-selection {
-    background: rgba(60, 60, 245, 0.2);
-    color: #333;
-}
-
-/* 优化长按菜单 */
-* {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-input, textarea, [contenteditable] {
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}
-
-/* 优化触摸反馈 */
-@media (hover: none) and (pointer: coarse) {
-    .footer-list li {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .footer-list li::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.3s ease, height 0.3s ease;
-    }
-    
-    .footer-list li:active::after {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-/* 优化深色模式支持 */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --card-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-        --border-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .index-balance,
-    .index-save,
-    .index-withdraw,
-    .my-info,
-    .my-pay-password,
-    .my-transaction-records,
-    .log-out {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-        border-color: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
-    }
-    
-    .my-pay-password-active-box,
-    .index-save-active-box,
-    .index-withdraw-active-box {
-        background: rgba(26, 26, 26, 0.95);
-        color: #ffffff;
-    }
-    
-    .my-pay-password-active-form input {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-    }
-    
-    .my-pay-password-active-form input::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-    }
-}
-
-/* 触摸优化和性能提升 */
-@media (hover: none) and (pointer: coarse) {
-    /* 优化触摸反馈 */
-    .index-save:active,
-    .index-withdraw:active,
-    .my-pay-password:active,
-    .my-transaction-records:active,
-    .pay-transfer:active,
-    .pay-collect:active,
-    .collect-handle:active,
-    .transfer-handle:active,
-    .log-out:active {
-        transform: scale(0.96);
-        transition: transform 0.1s ease;
-    }
-    
-    /* 优化长按反馈 */
-    .index-save:active::after,
-    .index-withdraw:active::after,
-    .my-pay-password:active::after,
-    .my-transaction-records:active::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(60, 60, 245, 0.1);
-        border-radius: inherit;
-        pointer-events: none;
-    }
-}
-
-/* 性能优化 */
-.index-balance,
-.index-save,
-.index-withdraw,
-.my-info,
-.my-pay-password,
-.my-transaction-records,
-.log-out {
-    will-change: transform, box-shadow;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-/* 优化动画性能 */
-.my-pay-password-active,
-.index-save-active,
-.index-withdraw-active {
-    will-change: opacity;
-}
-
-.my-pay-password-active-box,
-.index-save-active-box,
-.index-withdraw-active-box {
-    will-change: transform;
-}
-
-/* 添加微妙的阴影动画 */
-@keyframes subtleShadow {
-    0%, 100% {
-        box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.12));
-    }
-    50% {
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-    }
-}
-
-.index-balance {
-    animation: subtleShadow 3s ease-in-out infinite;
-}
-
-/* 优化字体大小在不同设备上的显示 */
-@media screen and (max-width: 375px) {
-    .index-balance-amount {
-        font-size: 26px;
-    }
-    
-    .index-save-title,
-    .index-withdraw-title,
-    .my-pay-password-title,
-    .my-transaction-records-title {
-        font-size: 18px;
-    }
-    
-    .index-save-desc,
-    .index-withdraw-desc,
-    .my-pay-password-desc,
-    .my-transaction-records-desc {
-        font-size: 13px;
-    }
-}
-
-@media screen and (min-width: 414px) {
-    .index-balance-amount {
-        font-size: 32px;
-    }
-    
-    .index-save-title,
-    .index-withdraw-title,
-    .my-pay-password-title,
-    .my-transaction-records-title {
-        font-size: 22px;
-    }
-    
-    .index-save-desc,
-    .index-withdraw-desc,
-    .my-pay-password-desc,
-    .my-transaction-records-desc {
-        font-size: 15px;
-    }
-}
-
-/* 优化状态栏样式 */
-
-
-/* 添加加载状态样式 */
-.loading {
-    position: relative;
-    overflow: hidden;
-}
-
-.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-/* 优化错误状态样式 */
-.error {
-    border-color: #e74c3c !important;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%) !important;
-    animation: errorShake 0.5s ease-in-out;
-}
-
-@keyframes errorShake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-/* 优化成功状态样式 */
-.success {
-    border-color: #27ae60 !important;
-    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%) !important;
-    animation: successPulse 0.6s ease-in-out;
-}
-
-@keyframes successPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
-/* 优化空状态样式 */
-.empty-state {
-    text-align: center;
-    padding: 40px 20px;
-    color: #999;
-}
-
-.empty-state::before {
-    content: '📱';
-    font-size: 48px;
-    display: block;
-    margin-bottom: 16px;
-    opacity: 0.6;
-}
-
-/* 优化网络状态指示器 */
-.network-status {
-    position: fixed;
-    top: calc(var(--header-height, 7%) + 10px);
-    right: 20px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #27ae60;
-    z-index: 1001;
-    animation: networkPulse 2s ease-in-out infinite;
-}
-
-@keyframes networkPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
-}
-
-.network-status.offline {
-    background: #e74c3c;
-    animation: none;
-}
-
-/* 优化触摸手势反馈 */
-.gesture-feedback {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(60, 60, 245, 0.2);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.gesture-feedback.active {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.5);
-}
-
-/* 优化键盘弹出时的布局 */
-@media screen and (max-height: 600px) {
-    .my-pay-password-active-box,
-    .index-save-active-box,
-    .index-withdraw-active-box {
-        padding: 20px 25px;
-        min-height: 300px;
-    }
-    
-    .my-pay-password-active-form {
-        gap: 15px;
-    }
-    
-    .my-pay-password-active-form input,
-    .my-pay-password-active-form button {
-        padding: 14px 18px;
-    }
-}
-
-/* 优化横屏模式 */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-    .header-box {
-        height: 10%;
-    }
-    
-    main {
-        top: 10%;
-        height: 80%;
-    }
-    
-    .footer-list {
-        height: 10%;
-    }
-    
-    .my-pay-password-active,
-    .index-save-active,
-    .index-withdraw-active {
-        top: 10%;
-        height: 80%;
-    }
-}
-
-/* 优化高刷新率设备 */
-@media (prefers-reduced-motion: no-preference) {
-    .index-save:hover,
-    .index-withdraw:hover,
-    .my-pay-password:hover,
-    .my-transaction-records:hover {
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .footer-li:hover {
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-}
-
-/* 优化可访问性 */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* 优化打印样式 */
-@media print {
-    .header-box,
-    .footer-list,
-    .my-pay-password-active,
-    .index-save-active,
-    .index-withdraw-active {
-        display: none !important;
-    }
-    
-    main {
-        position: static;
-        width: 100%;
-        height: auto;
-    }
-    
-    .index-balance,
-    .index-save,
-    .index-withdraw,
-    .my-info,
-    .my-pay-password,
-    .my-transaction-records {
-        break-inside: avoid;
-        margin: 10px 0;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
 }

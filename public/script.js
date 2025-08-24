@@ -151,7 +151,7 @@ footerList.forEach((item, index) => {
     item.addEventListener('click', e => {
         if (e.target.tagName === 'LI') {
             footerList.forEach(item => item.style.color = 'black');
-            footerList[index].style.color = 'blue'
+            footerList[index].style.color = '#2563eb'
 
             sections.forEach(item => item.classList.add('region-active'));
             sections[index].classList.remove('region-active');
