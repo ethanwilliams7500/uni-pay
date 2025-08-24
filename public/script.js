@@ -97,7 +97,7 @@ function render() {
     myEmil.textContent = email
 
     const activeAmount = document.querySelector('.index-balance-active-amount')
-    activeAmount.textContent = `US$ ${formatThousands(userBalance)}`
+    activeAmount.textContent = `US$ ${formatThousands(userBalance.toFixed(2))}`
 
     const transactionList = document.querySelector('.transaction-records-list')
     transactionList.innerHTML = ''; // 清空之前的记录
@@ -114,7 +114,7 @@ function render() {
         return `
         <li class="transaction-records-item">
             <span class="transaction-records-type">${typeText}</span>
-            <span class="transaction-records-amount" data-id="${flag}">${flag} ${formatThousands(amount)} $</span>
+            <span class="transaction-records-amount" data-id="${flag}">${flag} ${formatThousands(amount.toFixed(2))} $</span>
             <span class="transaction-records-date">${date}</span>
         </li>
         `
