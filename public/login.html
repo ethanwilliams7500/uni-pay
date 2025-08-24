@@ -167,6 +167,9 @@
             setStockpile('UniPay-currentUser', loginForm.username.value);
             location.href = 'index.html';
             loginForm.reset();
+        } else if (!storedUser) {
+            alert('用户不存在！请先注册。');
+            return;
         } else {
             alert('用户名或密码错误！');
             return;

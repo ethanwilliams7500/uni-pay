@@ -50,7 +50,20 @@ function formatBalance(num) {
     if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B'; // 十亿级
     if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M'; // 百万级
     if (num < 0.01) return num.toFixed(2); // 小于0.01保留两位小数
-    return num.toString();
+    return num.toFixed(2).toString();
+}
+
+function formatThousands(value, {
+    locale = 'en-US',              // 'zh-CN' 用空格分组、'en-US' 用逗号
+    minFractionDigits,             // 可选：最少小数位
+    maxFractionDigits              // 可选：最多小数位
+} = {}) {
+    const num = Number(value);
+    if (!Number.isFinite(num)) return ''; // 非数字返回空串，按需改
+    return new Intl.NumberFormat(locale, {
+        ...(minFractionDigits !== undefined ? { minimumFractionDigits: minFractionDigits } : {}),
+        ...(maxFractionDigits !== undefined ? { maximumFractionDigits: maxFractionDigits } : {}),
+    }).format(num);
 }
 
 // -------- 用户工具函数 --------
@@ -79,28 +92,29 @@ function render() {
     if (!userData) return;
 
     const {username, email, balance: userBalance} = userData
-    balance.textContent = `US$ ${formatBalance(userBalance)}`
+    balance.textContent = `US$ ${formatThousands(formatBalance(userBalance))}`
     myName.textContent = username
     myEmil.textContent = email
 
     const activeAmount = document.querySelector('.index-balance-active-amount')
-    activeAmount.textContent = `US$ ${userBalance.toFixed(2)}`
+    activeAmount.textContent = `US$ ${formatThousands(userBalance)}`
 
     const transactionList = document.querySelector('.transaction-records-list')
     transactionList.innerHTML = ''; // 清空之前的记录
 
-    transactionList.innerHTML = userData.transactions.map(transaction => {
-        const {type, amount, date, to, from} = transaction;
+    transactionList.innerHTML = userData.transactions.reverse().map(transaction => {
+        const {type, amount, date, to, from, game} = transaction;
         const flag = type === 'Deposit' || type === 'Collect' ? '+' : '-'
         const typeText = type === 'Deposit' ? '存入' :
             type === 'Withdraw' ? '取出' :
                 type === 'Transfer' ? `转账➞ ${to}` :
-                    type === 'Collect' ? `收款➞ ${from} ` : type;
+                    type === 'Collect' ? `收款➞ ${from} ` :
+                        type === 'game-recharge' ? `${game} 充值` : type
 
         return `
         <li class="transaction-records-item">
             <span class="transaction-records-type">${typeText}</span>
-            <span class="transaction-records-amount" data-id="${flag}">${flag} ${amount} $</span>
+            <span class="transaction-records-amount" data-id="${flag}">${flag} ${formatThousands(amount)} $</span>
             <span class="transaction-records-date">${date}</span>
         </li>
         `
@@ -380,6 +394,7 @@ indexBalance.addEventListener('click', () => {
 
 indexBalanceActive.addEventListener('click', e => {
     if (e.target.classList.contains('close-btn')) {
+        togglePage()
         indexBalanceActive.style.display = 'none'
     }
 })
@@ -389,9 +404,9 @@ myTransactionRecords.addEventListener('click', () => {
     transactionRecordsActive.style.display = 'flex'
 })
 
-transactionRecordsActive.addEventListener('click', e => {
+transactionRecordsActive.addEventListener('click', function (e) {
     if (e.target.classList.contains('close-btn')) {
-        transactionRecordsActive.style.display = 'none';
+        this.style.display = 'none';
     }
 });
 
