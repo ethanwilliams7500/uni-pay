@@ -142,9 +142,41 @@ function togglePage() {
     region2.forEach(item => item.style.display = 'none')
 }
 
+// 阻止整个页面的触摸滚动，保持页面固定
 document.body.addEventListener('touchmove', function (e) {
     e.preventDefault(); // 阻止页面拖动
 }, {passive: false});
+
+// 允许弹窗内容区域滚动
+function enableModalScroll() {
+    const modals = document.querySelectorAll('.index-save-active, .index-withdraw-active, .my-pay-password-active, .transaction-records-active, .Transfer-region-active, .index-balance-active');
+    
+    modals.forEach(modal => {
+        if (modal.style.display === 'flex') {
+            // 找到弹窗内的可滚动容器
+            const scrollableContent = modal.querySelector('.index-save-active-box, .index-withdraw-active-box, .my-pay-password-active-box, .transaction-records-active-box, .Transfer-main, .index-balance-active-box');
+            
+            if (scrollableContent) {
+                // 移除之前的事件监听器，避免重复绑定
+                scrollableContent.removeEventListener('touchmove', handleModalScroll);
+                // 允许弹窗内容滚动
+                scrollableContent.addEventListener('touchmove', handleModalScroll, {passive: true});
+            }
+        }
+    });
+}
+
+// 弹窗滚动事件处理函数
+function handleModalScroll(e) {
+    e.stopPropagation(); // 阻止事件冒泡到body
+}
+
+// 在弹窗显示时启用滚动
+function showModal(modalElement) {
+    modalElement.style.display = 'flex';
+    // 延迟一下再启用滚动，确保DOM已更新
+    setTimeout(enableModalScroll, 100);
+}
 
 // -------- 底部导航 --------
 footerList.forEach((item, index) => {
@@ -181,7 +213,7 @@ payList.forEach((item, index) => {
 // -------- 修改支付密码 --------
 myPayPassword.addEventListener('click', () => {
     togglePage()
-    myPayPasswordActive.style.display = 'flex';
+    showModal(myPayPasswordActive);
 });
 
 closeBtn.addEventListener('click', () => {
@@ -226,7 +258,7 @@ logOut.addEventListener('click', () => {
 // -------- 存入余额 --------
 indexSave.addEventListener('click', () => {
     togglePage()
-    indexSaveActive.style.display = 'flex'
+    showModal(indexSaveActive)
 })
 
 indexSaveCloseBtn.addEventListener('click', () => {
@@ -270,7 +302,7 @@ indexSaveActiveForm.addEventListener('submit', e => {
 // -------- 取出余额 --------
 indexWithdraw.addEventListener('click', () => {
     togglePage()
-    indexWithdrawActive.style.display = 'flex'
+    showModal(indexWithdrawActive)
 })
 
 indexWithdrawCloseBtn.addEventListener('click', () => {
@@ -320,7 +352,7 @@ indexWithdrawActiveForm.addEventListener('submit', e => {
 
 payTransfer.addEventListener('click', () => {
     togglePage()
-    payTransferActive.style.display = 'flex'
+    showModal(payTransferActive)
 })
 
 transferCloseBtn.addEventListener('click', () => {
@@ -389,7 +421,7 @@ payTransferForm.addEventListener('submit', e => {
 
 indexBalance.addEventListener('click', () => {
     togglePage()
-    indexBalanceActive.style.display = 'flex'
+    showModal(indexBalanceActive)
 })
 
 indexBalanceActive.addEventListener('click', e => {
@@ -401,7 +433,7 @@ indexBalanceActive.addEventListener('click', e => {
 
 myTransactionRecords.addEventListener('click', () => {
     togglePage()
-    transactionRecordsActive.style.display = 'flex'
+    showModal(transactionRecordsActive)
 })
 
 transactionRecordsActive.addEventListener('click', function (e) {
@@ -412,5 +444,5 @@ transactionRecordsActive.addEventListener('click', function (e) {
 
 toTransactionRecords.addEventListener('click', () => {
     togglePage()
-    transactionRecordsActive.style.display = 'flex'
+    showModal(transactionRecordsActive)
 })
