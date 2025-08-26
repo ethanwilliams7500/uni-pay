@@ -380,10 +380,16 @@ payTransferForm.addEventListener('submit', e => {
         alert('支付密码错误！')
         return
     }
+    if (transferAmount > 20000) {
+        if (!confirm('单笔转账金额超过20000$，是否继续？')) {
+            return
+        }
+    }
     if (transferAmount > Number(userData.balance)) {
         alert('余额不足！')
         return
     }
+
 
     alert('转账成功！')
     userData.balance -= transferAmount

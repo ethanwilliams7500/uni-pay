@@ -58,7 +58,7 @@
             margin-top: 15px;
             border: none;
             border-radius: 8px;
-            background-color: #2575fc;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -66,7 +66,7 @@
         }
 
         button:hover {
-            background-color: #1a5bcc;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
         }
 
         .form-section {
@@ -144,6 +144,11 @@
             return defaultValue
         }
     }
+
+    // 阻止整个页面的触摸滚动，保持页面固定
+    document.body.addEventListener('touchmove', function (e) {
+        e.preventDefault(); // 阻止页面拖动
+    }, {passive: false});
 
     toggleTexts.forEach((item, index) => {
         item.addEventListener('click', e => {
