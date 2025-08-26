@@ -53,17 +53,10 @@ function formatBalance(num) {
     return num.toFixed(2).toString();
 }
 
-function formatThousands(value, {
-    locale = 'en-US',              // 'zh-CN' 用空格分组、'en-US' 用逗号
-    minFractionDigits,             // 可选：最少小数位
-    maxFractionDigits              // 可选：最多小数位
-} = {}) {
-    const num = Number(value);
-    if (!Number.isFinite(num)) return ''; // 非数字返回空串，按需改
-    return new Intl.NumberFormat(locale, {
-        ...(minFractionDigits !== undefined ? { minimumFractionDigits: minFractionDigits } : {}),
-        ...(maxFractionDigits !== undefined ? { maximumFractionDigits: maxFractionDigits } : {}),
-    }).format(num);
+function formatThousands(num) {
+    const n = Number(num);
+    if (!Number.isFinite(n)) return '';
+    return new Intl.NumberFormat('en-US').format(n);
 }
 
 // -------- 用户工具函数 --------
@@ -92,7 +85,7 @@ function render() {
     if (!userData) return;
 
     const {username, email, balance: userBalance} = userData
-    balance.textContent = `US$ ${formatThousands(formatBalance(userBalance))}`
+    balance.textContent = `US$ ${userBalance >= 1000000 ? formatBalance(userBalance) : formatThousands(userBalance.toFixed(2))}`
     myName.textContent = username
     myEmil.textContent = email
 
@@ -150,12 +143,12 @@ document.body.addEventListener('touchmove', function (e) {
 // 允许弹窗内容区域滚动
 function enableModalScroll() {
     const modals = document.querySelectorAll('.index-save-active, .index-withdraw-active, .my-pay-password-active, .transaction-records-active, .Transfer-region-active, .index-balance-active');
-    
+
     modals.forEach(modal => {
         if (modal.style.display === 'flex') {
             // 找到弹窗内的可滚动容器
             const scrollableContent = modal.querySelector('.index-save-active-box, .index-withdraw-active-box, .my-pay-password-active-box, .transaction-records-active-box, .Transfer-main, .index-balance-active-box');
-            
+
             if (scrollableContent) {
                 // 移除之前的事件监听器，避免重复绑定
                 scrollableContent.removeEventListener('touchmove', handleModalScroll);
